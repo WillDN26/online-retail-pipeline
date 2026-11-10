@@ -1,0 +1,35 @@
+name: Data Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: python -m pytest -v
+
+      - name: Run pipeline
+        run: python -m source.pipeline
+
+      - name: Validate outputs
+        run: python tests/validate_outputs.py
+
+      - name: Show metrics
+        run: cat data/processed/metrics.json
+
+      - name: Upload processed files
+        uses: actions/upload-artifact@v4
+        with:
+          name: processed-data
+          path: data/processed/
