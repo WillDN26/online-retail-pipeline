@@ -2,7 +2,11 @@
 
 A small, end-to-end data pipeline built in Python. It ingests an Excel export of online retail transactions, cleans and enriches the data, aggregates daily sales, and writes the results to CSV and Parquet. The pipeline is versioned in Git, tested with pytest, and run automatically by GitHub Actions on every push.
 
+The Repository of the project can be found on the link below.
+
 **Dataset:** [Online Retail dataset (Kaggle)](https://www.kaggle.com/datasets/lakshmi25npathi/online-retail-dataset)
+
+**Repo:** https://github.com/WillDN26/online-retail-pipeline
 
 ## Architecture
 
