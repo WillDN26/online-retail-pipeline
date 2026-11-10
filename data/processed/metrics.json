@@ -1,0 +1,7 @@
+{
+  "records_in": 5000,
+  "records_out": 4882,
+  "records_dropped": 118,
+  "days_aggregated": 307,
+  "runtime_seconds": 2.381
+}
